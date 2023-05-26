@@ -19,11 +19,20 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @livewireStyles
+
+    @stack('styles')
 </head>
 
 <body>
     <div id="app">
+        @if (session('success'))
+            <div class="bg-success p-3 text-white">
+                <div class="container">{{ session('success') }}</div>
+            </div>
+        @endif
+        @if (session('danger'))
+            <div class="container">{{ session('danger') }}</div>
+        @endif
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -88,7 +97,7 @@
         </main>
     </div>
 
-    @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
