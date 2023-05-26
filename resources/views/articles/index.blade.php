@@ -5,17 +5,15 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>Articles</h1>
-                @foreach (range(1, 10) as $item)
-                    <a href="{{ route('articles.show', 'lorem-ipsum') }}" class="text-primary h5">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Vel, a.</a>
+                @foreach ($articles as $item)
+                    <a href="{{ route('articles.show', $item->slug) }}" class="text-primary h5">{{ $item->title }}</a>
                     <div>
-                        <span>Fahmy Fauzi</span>
-                        <span>26 Mei</span>
+                        <span>{{ $item->user->name }} ,</span>
+                        <span>{{ $item->created_at->diffForHumans() }}, </span>
                         <span>(0) Comments</span>
                     </div>
                     <p class="text-secondary">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure explicabo similique sunt
-                        quae harum consequatur voluptates amet laborum quisquam!
+                        {{ $item->description }}
                     </p>
                 @endforeach
 

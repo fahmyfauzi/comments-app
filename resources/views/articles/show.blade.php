@@ -4,16 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nam?
+                <h2>{{ $article->title }}
                 </h2>
                 <div>
-                    <span>Fahmy Fauzi</span>
-                    <span>26 Mei</span>
-                    <span>(0) Comments</span>
+                    <span>{{ $article->user->name }}, </span>
+                    <span>{{ $article->created_at->diffForHumans() }}</span>
                 </div>
                 <p class="text-secondary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure explicabo similique sunt
-                    quae harum consequatur voluptates amet laborum quisquam!
+                    {{ $article->body }}
                 </p>
 
                 <h3>(0) Comments</h3>
