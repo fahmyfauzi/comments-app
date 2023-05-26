@@ -18,7 +18,10 @@ class Comment extends Component
 
     public function render()
     {
-        return view('livewire.comment');
+        return view('livewire.comment', [
+            'comments' => ModelsComment::with('user')->where('article_id', $this->article->id)->get(),
+            'total_coments' => ModelsComment::with('user')->where('article_id', $this->article->id)->count()
+        ]);
     }
 
     public function store()
@@ -32,8 +35,8 @@ class Comment extends Component
         ]);
 
         if ($comment) {
-            session()->flash('success', 'Komentar berhasil dibuat');
-            return redirect()->route('articles.show', $this->article->slug);
+            $this->emit('comment_store', $comment->id);
+            $this->body = null;
         } else {
             session()->flash('danger', 'Komentar gagal dibuat');
             return redirect()->route('articles.show', $this->article->slug);

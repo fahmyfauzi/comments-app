@@ -1,5 +1,5 @@
 <div>
-    <h3>(0) Comments</h3>
+    <h3>({{ $total_coments }}) Comments</h3>
     @auth
         <form wire:submit.prevent='store' class="mb-4">
             <div class="mb-3">
@@ -26,8 +26,8 @@
     @endguest
 
 
-    @foreach (range(1, 5) as $item)
-        <div class="mb-3">
+    @foreach ($comments as $item)
+        <div class="mb-3" id="comment-{{ $item->id }}">
             <div class="d-flex align-items-start">
 
                 <img src="https://img.icons8.com/?size=512&id=z-JBA_KtSkxG&format=png" alt="user"
@@ -35,11 +35,11 @@
                 <div>
 
                     <div>
-                        <span>alvianda</span>
-                        <span>23 Mei 2023</span>
+                        <span>{{ $item->user->name }}, </span>
+                        <span>{{ $item->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="text-secondary mb-2">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, architecto.
+                        {{ $item->body }}
                     </div>
                     @auth
                         <div>
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <div class="d-flex align-items-start ms-4">
 
                 <img src="https://img.icons8.com/?size=512&id=z-JBA_KtSkxG&format=png" alt="user"
@@ -78,7 +78,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
         <hr>
     @endforeach
 </div>

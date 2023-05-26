@@ -6,6 +6,14 @@
 
 @push('scripts')
     @livewireScripts()
+    <script>
+        Livewire.on('comment_store', commentId => {
+            var helloScroll = document.getElementById('comment-' + commentId);
+            helloScroll.scrollIntoView({
+                behavior: 'smooth'
+            }, true);
+        });
+    </script>
 @endpush
 
 @section('content')
