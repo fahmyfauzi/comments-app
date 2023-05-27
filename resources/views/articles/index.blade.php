@@ -10,7 +10,7 @@
                     <div>
                         <span>{{ $item->user->name }} ,</span>
                         <span>{{ $item->created_at->diffForHumans() }}, </span>
-                        <span>(0) Comments</span>
+                        <span>({{ $item->total_comment_count }}) Comments</span>
                     </div>
                     <p class="text-secondary">
                         {{ $item->description }}

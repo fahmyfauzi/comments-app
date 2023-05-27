@@ -52,7 +52,15 @@
                                 <button class="btn btn-sm btn-danger"
                                     wire:click='selectDelete({{ $item->id }})'>Hapus</button>
                             @endif
-                            <button class="btn btn-sm btn-dark"><i class="bi bi-heart-fill"></i> (0)</button>
+                            @if ($item->hasLike)
+                                <button class="btn btn-sm btn-danger" wire:click='Like({{ $item->id }})'><i
+                                        class="bi bi-heart-fill"></i>
+                                    {{ $item->total_likes() }}</button>
+                            @else
+                                <button class="btn btn-sm btn-dark" wire:click='Like({{ $item->id }})'><i
+                                        class="bi bi-heart-fill"></i>
+                                    {{ $item->total_likes() }}</button>
+                            @endif
                         </div>
                     @endauth
                 </div>
@@ -122,7 +130,15 @@
                                         <button class="btn btn-sm btn-danger"
                                             wire:click='selectDelete({{ $item2->id }})'>Hapus</button>
                                     @endif
-                                    <button class="btn btn-sm btn-dark"><i class="bi bi-heart-fill"></i> (0)</button>
+                                    @if ($item2->hasLike)
+                                        <button class="btn btn-sm btn-danger" wire:click='Like({{ $item2->id }})'><i
+                                                class="bi bi-heart-fill"></i>
+                                            {{ $item2->total_likes() }}</button>
+                                    @else
+                                        <button class="btn btn-sm btn-dark" wire:click='Like({{ $item2->id }})'><i
+                                                class="bi bi-heart-fill"></i>
+                                            {{ $item2->total_likes() }}</button>
+                                    @endif
                                 </div>
                             @endauth
 

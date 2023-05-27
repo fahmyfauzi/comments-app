@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Like;
 use App\Models\Article;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -109,5 +110,23 @@ class Comment extends Component
             session()->flash('danger', 'Komentar gagal dihapus');
             return redirect()->route('articles.show', $this->article->slug);
         }
+    }
+
+    public function Like($id)
+    {
+        $data = [
+            'comment_id' => $id,
+            'user_id' => Auth::user()->id
+        ];
+
+        $like = Like::where($data);
+
+        if ($like->count()  > 0) {
+            $like->delete();
+        } else {
+            Like::create($data);
+        }
+
+        return null;
     }
 }

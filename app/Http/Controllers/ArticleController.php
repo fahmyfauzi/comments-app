@@ -11,7 +11,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::latest()->get()
+            'articles' => Article::withCount('totalComment')->latest()->get()
         ]);
     }
 
