@@ -65,5 +65,7 @@ reference : [Ferry Dermawan](https://www.youtube.com/playlist?list=PL-X81XM3cE18
 [Fahmy Fauzi ](https://github.com/fahmyfauzi)
 
 ## screanshot
+1. home articles
 ![article1](https://github.com/fahmyfauzi/comments-app/assets/58255031/620ca194-3229-4f6f-8d1b-53011d46ccce)
+2. detail article
 ![article2](https://github.com/fahmyfauzi/comments-app/assets/58255031/a2684a66-c5e8-4deb-b2a1-e170fc87143d)
