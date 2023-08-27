@@ -31,27 +31,42 @@ reference : [Ferry Dermawan](https://www.youtube.com/playlist?list=PL-X81XM3cE18
     ```sh
     composer install
     ```
+4. setup .env database
+   ```
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel_didamelid
+    DB_USERNAME=DB_USERNAME
+    DB_PASSWORD=DB_PASSWORD
+   ```
+5. Copy .env.example
+   ```
+   cp .env.example .env
+   ``` 
     
-4. Generate an app encryption key
+6. Generate an app encryption key
 
     ```sh
     php artisan key:generate
     ```
-5. migrasi database
+    
+7. migrasi database
     ```
     php artisan migrate
     ```
-6. Create data dummy
+    
+8. Create data dummy
     ```
     php artisan tinker
     User::factory()->count(5)->create()   
     Article::factory()->count(10)->create()
     ```
     
-7. jalankan project
+9. jalankan project
 
     ```sh
-   npm run dev
+   php artisan serve
     ```
 
 
@@ -66,6 +81,8 @@ reference : [Ferry Dermawan](https://www.youtube.com/playlist?list=PL-X81XM3cE18
 
 ## screanshot
 1. home articles
-![article1](https://github.com/fahmyfauzi/comments-app/assets/58255031/620ca194-3229-4f6f-8d1b-53011d46ccce)
+![241453380-620ca194-3229-4f6f-8d1b-53011d46ccce](https://github.com/fahmyfauzi/comments-app/assets/58255031/8c8321c0-3c40-413c-8b5e-2997f15df70d)
+
 2. detail article
-![article2](https://github.com/fahmyfauzi/comments-app/assets/58255031/a2684a66-c5e8-4deb-b2a1-e170fc87143d)
+![241453383-a2684a66-c5e8-4deb-b2a1-e170fc87143d](https://github.com/fahmyfauzi/comments-app/assets/58255031/7d76647f-e820-4f73-89db-8a0915afb4f1)
+
